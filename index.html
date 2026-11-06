@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> Just Me ✦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;800&family=Fredoka:wght@400;600&family=Pacifico&family=Press+Start+2P&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- FONDOS ANIMADOS (uno por tema) -->
+<div class="bgl" data-t="tango"></div>
+<div class="bgl" data-t="peach" style="--c1:#ffd9b8;--c2:#ffc2d4;--c3:#fff0c9"></div>
+<div class="bgl" data-t="aqua" style="--c1:#b8f0ff;--c2:#d6e4ff;--c3:#c9f7e8"></div>
+<div class="bgl" data-t="lilac" style="--c1:#e0ccff;--c2:#ffc9e0;--c3:#c7ecff"></div>
+<div class="bgl" data-t="gold" style="--c1:#ffe08a;--c2:#ffb88a;--c3:#ffd1dc"></div>
+<div class="bgl" data-t="mint" style="--c1:#c4f5e4;--c2:#bfeaff;--c3:#e6d9ff"></div>
+<div class="bgl" data-t="sky" style="--c1:#bfeaff;--c2:#e0ccff;--c3:#ffe0f0"></div>
+<div class="bgl" data-t="blush" style="--c1:#ffd1dc;--c2:#ffe3c4;--c3:#f2d4ff"></div>
+<div class="bgl" data-t="vault" style="--c1:#1b1040;--c2:#0f3d5e;--c3:#3b1c5a"></div>
+<canvas id="fx"></canvas>
+ 
+<!-- ===== PORTADA ===== -->
+<section class="stage active" id="s-orb"><button id="orb" aria-label="Comenzar"><i></i><i></i></button></section>
+ 
+<section class="stage" id="s-hello">
+  <img class="bgimg" data-img="fondo naranja" alt="">
+  <svg class="sp" style="--x:6%;--y:62%;--s:300px;--d:60s" viewBox="0 0 100 100"><use href="#spiral"/></svg>
+  <svg class="sp" style="--x:70%;--y:6%;--s:340px;--d:75s" viewBox="0 0 100 100"><use href="#spiral"/></svg>
+  <svg class="sp" style="--x:84%;--y:66%;--s:160px;--d:40s" viewBox="0 0 100 100"><use href="#spiral"/></svg>
+  <svg class="sp" style="--x:40%;--y:-4%;--s:120px;--d:45s" viewBox="0 0 100 100"><use href="#spiral"/></svg>
+  <div class="hello-wrap">
+    <h1 class="typed" id="typed" aria-label="Hello, Zuko here"></h1>
+    <button class="btn-ico fxb hb" id="hello-enter" data-fx="✦,♡,★,🍊,⚡,🌸"><span class="ring"></span><span class="shine"></span><em class="bd">✦</em><span class="wv" data-wave>Entrar</span><em class="ar">➜</em><i style="--a:-90deg;--r:62px">✦</i><i style="--a:-35deg;--r:120px">♡</i><i style="--a:35deg;--r:120px">★</i><i style="--a:90deg;--r:62px">✧</i><i style="--a:145deg;--r:120px">♡</i><i style="--a:215deg;--r:120px">✦</i></button>
+  </div>
+  <button class="skip" id="skip">saltar ▸▸</button>
+</section>
+<svg width="0" height="0" style="position:absolute"><symbol id="spiral" viewBox="0 0 100 100"><path d="M50,50 C50,44 58,44 58,50 C58,60 42,60 42,50 C42,36 66,36 66,50 C66,68 34,68 34,50 C34,28 74,28 74,50 C74,76 26,76 26,50" fill="none" stroke="#b8300f" stroke-width="4" stroke-linecap="round" opacity=".75"/></symbol></svg>
+<video id="introVideo" class="hid" playsinline preload="auto"></video>
+ 
+<section class="stage" id="s-collage">
+  <div id="collage"></div>
+  <header class="title-wrap">
+    <h1 class="manga-title ink">
+      <span class="l1" data-split style="--b:2.8s">Enters…</span>
+      <span class="l2" data-split style="--b:3.5s">me!</span>
+    </h1>
+    <a href="#inicio" class="btn-ico fxb " id="enter" data-fx="✦,♡,★,🍊,⚡,🌸"><span class="ring"></span><span class="shine"></span><em class="bd">✦</em><span class="wv" data-wave>Entrar a mi mundo</span><em class="ar">➜</em><i style="--a:-90deg;--r:62px">✦</i><i style="--a:-35deg;--r:120px">♡</i><i style="--a:35deg;--r:120px">★</i><i style="--a:90deg;--r:62px">✧</i><i style="--a:145deg;--r:120px">♡</i><i style="--a:215deg;--r:120px">✦</i></a>
+  </header>
+</section>
+<button class="mbtn fab show" aria-label="Música" title="Música"><b></b><b></b><b></b></button>
+ 
+<!-- ===== WEB ===== -->
+<div id="site">
+<nav id="nav">
+  <a class="fxb" href="#inicio" data-fx="🍊,✦,🏠" data-snd="330" style="--h1:#dd4124;--h2:#ff8a5c">Inicio</a><a class="fxb" href="#sobre-mi" data-fx="♡,🌸,✦" data-snd="368" style="--h1:#ff5c93;--h2:#ffb3d1">Yo</a><a class="fxb" href="#fandoms" data-fx="⚡,★,🐺,🦅" data-snd="406" style="--h1:#7b5cff;--h2:#c9a8ff">Fandoms</a><a class="fxb" href="#gustos" data-fx="🍣,🍰,🍫,☕" data-snd="444" style="--h1:#ff9a3c;--h2:#ffd166">Gustos</a><a class="fxb" href="#deportes" data-fx="🏊,🥇,💧,🏅" data-snd="482" style="--h1:#1fb6e0;--h2:#8fe3f2">Deportes</a><a class="fxb" href="#arte" data-fx="🎹,🎭,🎨,♪" data-snd="520" style="--h1:#b45cff;--h2:#ff8ad8">Arte</a><a class="fxb" href="#idiomas" data-fx="あ,Aa,é,語" data-snd="558" style="--h1:#25b6a0;--h2:#8fe3c8">Idiomas</a><a class="fxb" href="#mun" data-fx="🔨,🌐,📜,⚖" data-snd="596" style="--h1:#e0a010;--h2:#ffd166">MUN</a><a class="fxb" href="#stem" data-fx="🧪,⚛,🔬,🧬" data-snd="634" style="--h1:#2bbf7a;--h2:#8fe3c8">STEM</a><a class="fxb" href="#suenos" data-fx="✈️,🎓,☁,⭐" data-snd="672" style="--h1:#4aa8ff;--h2:#bfeaff">Sueños</a><a class="fxb" href="#amiga" data-fx="💛,✈️,♡,🫶" data-snd="710" style="--h1:#ff6f91;--h2:#ffc2d4">Mi amiga</a><a class="fxb" href="#entorno" data-fx="🦔,🌿,🍂" data-snd="748" style="--h1:#9a7b4f;--h2:#ffd9a8">Entorno</a><a class="fxb" href="#curioso" data-fx="🔎,❓,✦,💡" data-snd="786" style="--h1:#8a5cff;--h2:#e0ccff">Curioso</a><a class="fxb" href="#quotes" data-fx="💬,“,✧,✦" data-snd="824" style="--h1:#ff7a3d;--h2:#ffc49b">Quotes</a><a class="fxb gold" href="#siglo-perdido" data-fx="🔒,✧,★,🗝" data-snd="862" style="--h1:#3b1c5a;--h2:#ffd66b">Siglo Perdido</a><a class="fxb" href="#fin" data-fx="⌨,✦,🎬" data-snd="900" style="--h1:#444;--h2:#ff8a5c">The End</a>
+  <button class="mbtn" aria-label="Música"><b></b><b></b><b></b></button>
+</nav>
+<main>
+<section id="inicio" data-theme="tango" data-q="inicio">
+  <div class="beads" id="beads" aria-label="Daniela Arce"></div>
+  <div class="hellotag"><img data-img="decoracion" alt=""><span>Daniela</span></div>
+  <div class="panel hero">
+    <div class="frame nerv" data-fr="credencial de nerv" data-ph="20260710_130609" style="--l:6%;--t:30%;--w:30%;--h:58%"></div>
+    <div>
+      <h1 class="ink">Sobre mí</h1>
+      <p class="lead">Hola, soy Daniela. Me gusta la ciencia, debatir, el anime, nadar y hacer postres. Y sí, soy un poquito rara.</p>
+      <div class="chips"><span>STEM</span><span>MUN</span><span>Natación</span><span>Anime y manga</span><span>Bioquímica</span><span>Postres</span><span>Cumple: 8 de febrero</span></div>
+    </div>
+    <div class="frame poke" data-fr="cartapokemon marco" data-ph="WhatsApp Image 2026-10-30 at 4.46.03 PM" style="--l:9%;--t:9%;--w:82%;--h:40%"></div>
+  </div>
+</section>
+ 
+<section id="sobre-mi" data-theme="tango" data-q="yo">
+  <div class="panel">
+    <h2 class="ink">Quién soy</h2>
+    <p class="lead">Soy una chica bastante única y un poco rara, y me encanta ser así. Por fuera casi siempre me vas a ver súper alegre, sonriendo y con la mejor actitud, pero la realidad es que cuido muchísimo mi espacio personal. No le doy mi confianza a cualquiera y me toma tiempo abrirme con la gente. Eso sí, cuando me apasiona algo —ya sea un debate de MUN, maquetar código o maratonear anime— le pongo el 100% de mi energía.</p>
+    <h3>Más sobre mí</h3>
+    <p>Si me tuvieras que definir en una palabra sería <b>competitiva</b>. Odio perder y odio todavía más fracasar. Por eso a veces parece que tengo el ego por las nubes, pero la verdad es que soy bastante insegura por dentro y me exijo un montón.</p>
+    <p>Mi color favorito es el <b>naranja</b> (y el blanco). Mi comida favorita es la japonesa. Y las frutas… no las soporto. Ninguna. No me hagas comer fruta jamás.</p>
+    <p>Soy Ravenclaw, mi patronus es un lobo y tengo todos los libros de Harry Potter. Mi amiga dice que soy intensa. Puede ser.</p>
+    <h3>Me inspiran y me identifico</h3>
+    <p>Quien más me inspira es <b>Zuko</b>; también <b>Senku</b> y <b>Edward</b>. Aunque quiero ser como Zuko, me parezco más a <b>Azula</b> y a <b>Asuka</b> de Evangelion.</p>
+    <div class="gal"><figure class="pol"><img data-img="zuko foto" alt=""><figcaption>Zuko</figcaption></figure><figure class="pol"><img data-img="azula" alt=""><figcaption>Azula</figcaption></figure><figure class="pol"><img data-img="azuka" alt=""><figcaption>Asuka</figcaption></figure></div>
+    <h3>De pequeña</h3>
+    <div class="gal"><figure class="pol"><img data-img="WhatsApp Image 2026-10-30 at 4.47.12 PM (1)" alt=""></figure><figure class="pol"><img data-img="WhatsApp Image 2026-10-30 at 4.47.13 PM (1)" alt=""></figure><figure class="pol"><img data-img="WhatsApp Image 2026-10-30 at 4.47.13 PM (2)" alt=""></figure><figure class="pol"><img data-img="WhatsApp Image 2026-10-30 at 4.47.13 PM (3)" alt=""></figure><figure class="pol"><img data-img="WhatsApp Image 2026-10-30 at 4.47.13 PM" alt=""></figure></div>
+  </div>
+</section>
+ 
+<section id="fandoms" data-theme="lilac" data-q="gustos">
+  <div class="panel wide reel">
+    <h2 class="ink">Mis fandoms</h2>
+    <p class="lead">Pasan solitos. Ponles el mouse encima para pausar y toca uno para verlo en grande.</p>
+    <div class="film" id="film"><div class="track" id="track">
+      <article class="fcard " data-fx="🎞,✦"><h3>Pokémon</h3><p>Amo Pokémon. Mi temporada favorita es <b>XYZ</b> y mis pokémon favoritos son <b>Espeon</b> y <b>Hoopa</b>. Fue de mis primeros animes.</p><div class="chips"><span>Temporada: XYZ</span><span>Espeon</span><span>Hoopa</span></div><div class="gal sm"><figure class="pol"><img data-img="pokemon xyz" alt=""><figcaption>XYZ</figcaption></figure><figure class="pol"><img data-img="espion" alt=""><figcaption>Espeon</figcaption></figure><figure class="pol"><img data-img="espionn-removebg-preview" alt=""></figure><figure class="pol"><img data-img="hoopa" alt=""><figcaption>Hoopa</figcaption></figure></div></article>
+      <article class="fcard " data-fx="🎞,✦"><h3>Marvel</h3><p>Me he visto mil veces las películas de Marvel. Mis personajes favoritos son <b>Hawkeye</b> y <b>Tony Stark</b>.</p><div class="chips"><span>Hawkeye</span><span>Tony Stark</span><span>Avengers</span></div><div class="gal sm"><figure class="pol"><img data-img="tony y haweye" alt=""><figcaption>Tony y Hawkeye</figcaption></figure><figure class="pol"><img data-img="avengers" alt=""></figure><figure class="pol"><img data-img="98d37d5b6361d612684c7780ac79f56c" alt=""></figure></div></article>
+      <article class="fcard " data-fx="🎞,✦"><h3>Star Wars</h3><p>Mi trilogía favorita es la de Anakin: la segunda en estreno, pero la primera cronológicamente. Mi película favorita es la <b>3</b> y mi personaje favorito es <b>R2-D2</b>.</p><div class="chips"><span>Trilogía: Anakin</span><span>Película: Episodio III</span><span>R2-D2</span></div><div class="gal sm"><figure class="pol"><img data-img="starwars 3" alt=""><figcaption>Episodio III</figcaption></figure><figure class="pol"><img data-img="satrwars" alt=""></figure><figure class="pol"><img data-img="starwars" alt=""></figure></div></article>
+      <article class="fcard big" data-fx="🎞,✦"><h3>Harry Potter</h3><p>Tengo todos los libros de la saga. Soy <b>Ravenclaw</b>, la casa de los que aprenden y piensan, y mi patronus es un <b>lobo</b>.</p><p>Es una de esas historias a las que siempre se vuelve, y por eso los libros tienen su lugar en mi estante.</p><div class="chips"><span>Casa: Ravenclaw</span><span>Patronus: lobo</span><span>Libros: todos</span></div><div class="gal sm"><figure class="pol"><img data-img="ravenclaw" alt=""><figcaption>Ravenclaw</figcaption></figure><figure class="pol"><img data-img="harry potter" alt=""><figcaption>Mis libros</figcaption></figure></div></article>
+      <article class="fcard " data-fx="🎞,✦"><h3>K-pop</h3><p>Mi grupo favorito de K-pop es <b>NewJeans</b>. Hasta tengo la polera que lo dice.</p><div class="chips"><span>NewJeans</span></div><div class="gal sm"><figure class="pol"><img data-img="newjeans" alt=""></figure><figure class="pol"><img data-img="newjeansdisco" alt=""></figure><figure class="pol"><img data-img="newjeanss|newjeansss|newjeanssss" alt=""><figcaption>Mi polera</figcaption></figure></div></article>
+      <article class="fcard big ham" data-fx="🎞,✦"><h3>Hamilton</h3><p>Hamilton es el único musical que me gusta de verdad. Mi personaje favorito es <b>Eliza</b>, pero según un test de personalidad me parezco a <b>Hamilton</b>. Qué ironía.</p><p>Pasa el mouse por esta tarjeta para escuchar algo, o toca la estrella ★ del costado.</p><div class="chips"><span>Favorita: Eliza</span><span>Test: Hamilton</span><span>My Shot ★</span></div><div class="gal sm"><figure class="pol"><img data-img="eliza" alt=""><figcaption>Eliza</figcaption></figure><figure class="pol"><img data-img="hamilto my shot|HAMILTONAUDIO|HAMILTON AUDIO" alt=""></figure><figure class="pol"><img data-img="hamiltonn" alt=""></figure><figure class="pol"><img data-img="hamitloon" alt=""></figure><figure class="pol"><img data-img="hamilton|hamlton" alt=""></figure></div></article>
+      <article class="fcard " data-fx="🎞,✦"><h3>Evangelion</h3><p>Evangelion es de mis animes favoritos y con Asuka y Azula me identifico más que con nadie.</p><div class="chips"><span>Asuka</span><span>Azula</span><span>Zuko me inspira</span></div><div class="gal sm"><figure class="pol"><img data-img="azuka" alt=""><figcaption>Asuka</figcaption></figure><figure class="pol"><img data-img="azula" alt=""><figcaption>Azula</figcaption></figure><figure class="pol"><img data-img="zuko foto" alt=""><figcaption>Zuko</figcaption></figure></div></article>
+    </div></div>
+    <p class="center"><button class="btn sm fxb" id="reelPause" data-fx="🎞,⏸,✦">⏸ Pausar</button></p>
+    <img class="stk clap" data-img="bannerstikcer_de_director-removebg-preview" alt="">
+  </div>
+</section>
+<div id="fmodal" hidden><div class="fm-in" id="fmin"></div></div>
+ 
+<section id="gustos" data-theme="peach" data-q="gustos">
+  <div class="panel nb">
+    <img class="deco cass" data-img="casset" alt=""><img class="deco cd" data-img="disco decoración" alt=""><img class="deco notes" data-img="musicaaa-removebg-preview" alt="">
+    <h2 class="ink">Mis gustos</h2>
+    <div class="grid">
+      <article class="card flat"><h3>Anime</h3><p>No tengo un favorito porque me gustan muchísimos. He visto unos 200, unos mejores que otros. Mis primeros fueron <b>Pokémon</b> y <b>Glitter Force</b>; el último, la nueva temporada de <b>Black Clover</b>. Evangelion es de mis favoritos y <b>Cyberpunk: Edgerunners</b> fue el que me destrozó.</p></article>
+      <article class="card flat"><h3>Manga y manhwa</h3><p>Me gusta más leer manga que ver anime. Mi manhwa favorito es <b>Love Is an Illusion</b>.</p><figure class="pol"><img data-img="love is an ilusion" alt=""></figure></article>
+      <article class="card flat"><h3>Mi soundtrack diario</h3><p>En mi playlist entra de todo: openings de anime, pop, rock, lo-fi, k-pop, o música instrumental cuando tengo que concentrarme para programar o escribir para MUN. Mi canción de anime favorita es <b>Dan Dan Kokoro Hikareteku</b> (Mi corazón encantado), por su mensaje.</p></article>
+      <article class="card flat"><h3>Comer y tomar</h3><p>Mi comida favorita es la <b>japonesa</b> (los makis, siempre). En Starbucks pido el <b>Chocolate Cream Frappuccino</b>. Hago postres de todo tipo, pero cocinar salado no es lo mío.</p></article>
+    </div>
+    <div class="gal"><figure class="pol"><img data-img="starbucks" alt=""><figcaption>Mi Chocolate Cream Frappuccino</figcaption></figure><figure class="pol"><img data-img="makis" alt=""></figure><figure class="pol"><img data-img="makiss" alt=""></figure><figure class="pol"><img data-img="makis y ramne" alt=""><figcaption>Makis y ramen</figcaption></figure><figure class="pol"><img data-img="postres" alt=""></figure><figure class="pol"><img data-img="postreees" alt=""></figure><figure class="pol"><img data-img="postress" alt=""></figure><figure class="pol"><img data-img="postresess" alt=""></figure></div>
+  <div class="decorow"><img class="stk " data-img="decoración galleta|decoración galletaaaaaaaaa" alt=""><img class="stk " data-img="decoracióngalleta|decoracióngalletaa|decoracióngalletaaa" alt=""><img class="stk " data-img="decoracióngalletaaaa|decoracióngalletaaaaa|decoracióngalletaaaaaa" alt=""><img class="stk " data-img="decoracióndepaan|decoracióndepan" alt=""><img class="stk " data-img="bitindecoracióon|bitindecoraciòon|bitindecoración" alt=""><img class="stk " data-img="boton decoración" alt=""><img class="stk " data-img="botondecoración jn" alt=""><img class="stk " data-img="cartasdecoración" alt=""><img class="stk " data-img="decoracion snoppy" alt=""></div></div>
+</section>
+ 
+<section id="deportes" data-theme="aqua" data-q="deportes">
+  <div class="panel ticket">
+    <h2 class="ink">Deportes</h2>
+    <p class="lead">Amo los deportes, y en especial la <b>natación</b>. Odio perder, así que un deporte individual me vuelve demasiado competitiva. Es el deporte con el que más medallas tengo y me encantaba competir en la Federación Nacional de Deportes Acuáticos… aunque siempre he odiado el estilo pecho.</p>
+    <div class="gal sportrow"><figure class="pol big"><img data-img="medallas" alt=""><figcaption>Mis medallas</figcaption></figure><div class="tv"><video data-vid="gimansia video|gimnasia video" controls playsinline preload="metadata"></video><span>▶ Mi gimnasia</span></div></div>
+    <div class="grid">
+      <article class="card flat"><h3>Gimnasia</h3><p>Era gimnasta y para mí fue un sueño frustrado: era muy buena y lo disfrutaba demasiado, pero ahí quedó.</p></article>
+      <article class="card flat"><h3>Ballet</h3><p>De pequeña hacía ballet y lo disfrutaba mucho.</p></article>
+      <article class="card flat"><h3>Todos los demás</h3><p>También me gustan mucho los demás deportes.</p></article>
+    </div>
+    <div class="gal"><figure class="pol"><img data-img="gimnasia" alt=""></figure><figure class="pol"><img data-img="gimansia" alt=""></figure><img class="stk big" data-img="ce9a10c66913860ae18a5c99103a726a-removebg-preview" alt=""></div>
+  </div>
+</section>
+ 
+<section id="arte" data-theme="lilac" data-q="arte">
+  <div class="panel sticky">
+    <h2 class="ink">Música, teatro y dibujo</h2>
+    <div class="grid">
+      <article class="card flat"><h3>Instrumentos</h3><p>Toco dos instrumentos: <b>flauta dulce</b> y <b>piano</b>. Hace mucho que no doy recitales, pero antes me encantaba.</p></article>
+      <article class="card flat"><h3>Actuar</h3><p>En mi anterior colegio me gustaba mucho actuar y en varias obras tuve el papel protagónico. Eso fue hace mucho tiempo, pero lo recuerdo con cariño.</p></article>
+      <article class="card flat"><h3>Dibujos</h3><p>Aquí algunos de mis dibujos.</p></article>
+      <article class="card flat"><h3>Piano</h3><p>Toca las teclas en la ventana de piano del costado 🎹</p><div class="pianoh"><img data-img="piano laterlal" alt=""></div></article>
+    </div>
+    <div class="gal"><div class="frame paint" data-fr="decoración_para_fotos_especiales-removebg-preview" data-ph="dibujooos" style="--l:10%;--t:12%;--w:78%;--h:76%"></div><figure class="pol"><img data-img="dibujos" alt=""></figure><figure class="pol"><img data-img="WhatsApp Image 2026-10-30 at 4.45.13 PM" alt=""><figcaption>Mi cuadro LOVE</figcaption></figure></div>
+  </div>
+</section>
+ 
+<section id="idiomas" data-theme="sky" data-q="idiomas">
+  <div class="panel passport">
+    <h2 class="ink">Idiomas</h2>
+    <div class="lang"><b>Inglés</b><span>preparando mi examen C1</span><i style="--w:85%"></i></div>
+    <div class="lang"><b>Francés</b><span>tengo el B1</span><i style="--w:55%"></i></div>
+    <div class="lang"><b>Japonés</b><span>¡lo estoy empezando a aprender!</span><i style="--w:12%"></i></div>
+  </div>
+</section>
+ 
+<section id="mun" data-theme="gold" data-q="mun">
+  <div class="panel cert">
+    <h2 class="ink">Mis premios en MUN</h2>
+    <p class="lead">Participar en debates de Naciones Unidas me enseñó a investigar a fondo, negociar, redactar resoluciones y hablar en público con muchísima seguridad (¡incluso en varios idiomas!). Defender la postura de distintos países en comités exigentes es de mis cosas favoritas.</p>
+    <div class="chips big"><span>Outstanding Delegate ×1</span><span>Honorable Mention ×2</span><span>Best Position Paper</span><span>Verbal Mention ×1</span><span>Próxima meta: mi martillo 🔨</span></div>
+    <p class="hint2">Toca un diploma para verlo en grande.</p>
+<article class="dip"><div class="pol big"><img data-img="MUn outs" alt=""></div><div><h3>Outstanding Delegate</h3><p>Es el reconocimiento para los delegados que más destacan en su comité. Me lo dieron por negociar bien, armar alianzas y hablar con seguridad.</p><p class="conf"><span>🏛 SFC MUN</span><span>🧬 Comité: WHO</span><span>📅 2026</span></p></div></article><article class="dip"><div class="pol big"><img data-img="MUN hon" alt=""></div><div><h3>Honorable Mention</h3><p>Mi mención honrosa en SNJ MUN (3.ª edición), el 2 y 3 de mayo de 2026. Representé a Australia en el comité de la OMS.</p><p class="conf"><span>🏛 SNJ MUN</span><span>🌍 Australia</span><span>🧬 Comité: WHO</span><span>📅 2026</span></p></div></article><article class="dip"><div class="pol big"><img data-img="MUUn hon" alt=""></div><div><h3>Honorable Mention</h3><p>Mi mención honrosa en el Cambridge College Model United Nations, el 17 de mayo de 2026. Representé a Taiwán en el comité WHO.</p><p class="conf"><span>🏛 Cambridge College</span><span>🌍 Taiwán</span><span>🧬 Comité: WHO</span><span>📅 2026</span></p></div></article>
+<div class="gal"><figure class="pol"><img data-img="MUN" alt=""><figcaption>Con mi equipo</figcaption></figure><figure class="pol"><img data-img="MUN (2)" alt=""></figure><figure class="pol"><img data-img="MUUn" alt=""></figure><figure class="pol"><img data-img="muuun" alt=""></figure></div>
+    <h3>Lo que aprendí</h3>
+    <div class="grid">
+      <article class="card flat"><h3>Oratoria y persuasión</h3><p>Hablar frente a auditorios llenos, defender ideas firmes y liderar bloques de negociación.</p></article>
+      <article class="card flat"><h3>Investigación express</h3><p>Analizar crisis internacionales, geopolítica y leyes internacionales en poco tiempo.</p></article>
+      <article class="card flat"><h3>Redacción de resoluciones</h3><p>Dominar la estructura de los documentos de la ONU y de los acuerdos multilaterales.</p></article>
+    </div>
+  </div>
+</section>
+ 
+<section id="stem" data-theme="mint" data-q="stem">
+  <div class="panel lab">
+    <h2 class="ink">Yo en STEM</h2>
+    <p class="lead">Toca cada proyecto para abrirlo.</p>
+    <details class="card"><summary>Lámina de suero regenerativa <i>1.er puesto · 2026</i></summary>
+      <p>Me llevé el primer puesto absoluto en la feria de ciencias «Innovation in Science and Technology 2026». Desarrollé una lámina de suero bio-regenerativa a base de centella asiática: apliqué principios de bioquímica para extraer sus propiedades cicatrizantes y regenerativas, y formulé un producto estable que se pudiera aplicar directamente sobre la piel. Ese año la feria fue abierta a todo el distrito, así que tuve que exponer y defender la ciencia detrás de mi fórmula ante todo tipo de público, desde mi comunidad hasta jurados exigentes.</p></details>
+    <details class="card"><summary>IntiCrisp <i>Ganadores nacionales · 2026</i></summary>
+      <div class="gal sm"><figure class="pol"><img data-img="WhatsApp Image 2026-10-30 at 4.44.35 PM" alt=""><figcaption>¡El cheque de S/ 2,500!</figcaption></figure><figure class="pol"><img data-img="Captura de pantalla 2026-10-31 113145" alt=""><figcaption>Mi equipo</figcaption></figure></div>
+      <p>Con IntiCrisp logramos llevar la ciencia del laboratorio a un producto real. Fui parte del equipo ganador del Concurso Nacional de Emprendimiento Escolar organizado por Compartamos Impulsa. Aplicamos ciencia de alimentos: formulamos un snack nutricional innovador, analizando componentes químicos, métodos de conservación y el valor alimenticio de insumos locales. Como líder, investigué los valores nutricionales ideales y los superalimentos peruanos que mejor podían integrarse al producto. No fue solo una idea, fue una solución nutricional tangible: fuimos uno de los equipos seleccionados para recibir un fondo semilla de S/ 2,500.</p></details>
+    <details class="card"><summary>Prototipos piezoeléctricos <i>2.º puesto · 2025</i></summary>
+      <p>Gané el segundo puesto en la Science Exhibition 2025 (Categoría IV) de mi colegio. Construí desde cero un sistema de circuitos con discos piezoeléctricos: soldé cables, conecté componentes e hice muchísimas pruebas de ensayo y error (por momentos me estresé de lo frágiles que son). Quise demostrar que se puede transformar energía mecánica, como una presión o un golpe, en energía eléctrica para encender LEDs, y plantear que el futuro de la tecnología debe apuntar a la sostenibilidad, usando nuestros propios movimientos y el entorno como fuentes de energía limpia.</p></details>
+    <details class="card"><summary>Rosalind Franklin Academy of Science <i>Beca · 2022</i></summary>
+      <p>En 2022 fui becada para participar en la Rosalind Franklin Academy of Science (impulsada por la Universidad Cayetano Heredia) y completé el programa obteniendo la certificación. Fue mi primera inmersión profunda en la investigación científica. Como reto final tuvimos que desarrollar un proyecto desde cero y exponerlo en vivo en un auditorio. Me dio bases científicas súper sólidas que sigo aplicando hoy y me convenció al 100% de que quiero dedicar mi vida al mundo STEM.</p></details>
+    <h3>Mis habilidades</h3>
+    <div class="chips big"><span>Investigación</span><span>Bioquímica</span><span>Ciencia de alimentos</span><span>Circuitos y soldadura</span><span>Liderazgo de equipo</span><span>Maquetar código</span><span>Oratoria</span></div>
+  </div>
+</section>
+ 
+<section id="suenos" data-theme="sky" data-q="suenos">
+  <div class="panel boarding">
+    <h2 class="ink">Mis grandes sueños</h2>
+    <p class="lead">Quiero estudiar <b>Bioquímica</b> o <b>Ciencias Biológicas</b>. Y mi meta principal es irme a estudiar al extranjero. Quiero vivir en otro país, adaptarme a una nueva cultura, poner a prueba mis idiomas en el mundo real y demostrarme de todo lo que soy capaz por mi cuenta.</p>
+    <p>Me encantaría estudiar una carrera STEM fuera del país. La Universidad de Alberta me fascina, aunque todavía no estoy segura.</p>
+    <div class="chips big"><span>Estudiar en el extranjero</span><span>Bioquímica o Ciencias Biológicas</span><span>Universidad de Alberta (¿quizá?)</span><span>Inglés C1 · Francés B1 · Japonés</span></div>
+    <h3>La universidad que me fascina</h3>
+    <div class="gal"><figure class="pol"><img data-img="alberta unviersidad|alberta universidad|alberta uniersidad" alt=""><figcaption>University of Alberta</figcaption></figure><figure class="pol"><img data-img="unviertsity of alberta|univertsity of alberta|university of alberta|unviersity of alberta" alt=""><figcaption>Alberta de noche</figcaption></figure><img class="stk win2" data-img="350932d5b5f22d6c05b34a1bc68e11af" alt=""></div>
+  </div>
+</section>
+ 
+<section id="amiga" data-theme="blush" data-q="entorno">
+  <div class="panel lights friend">
+    <span class="plane">✈️</span>
+    <h2 class="ink">Mi mejor amiga</h2>
+    <p class="lead">La conozco desde los 2 años. Nuestras mamás ya se conocían desde antes, pero ninguna tenía idea de que años después nos íbamos a encontrar en el cole y nos íbamos a hacer mejores amigas. Ahora ella está en Estados Unidos y la extraño muchísimo.</p>
+    <div class="count" id="count"><div><b id="cd">--</b><span>días</span></div><div><b id="ch">--</b><span>horas</span></div><div><b id="cm">--</b><span>min</span></div><div><b id="cs">--</b><span>seg</span></div></div>
+    <p class="center"><b id="cmsg">Falta poco para el 16 de noviembre, cuando viene.</b></p>
+    <div class="gal frames"><div class="frame cam" data-fr="marco_bonito-removebg-preview" data-ph="mejor amigaaa"></div><div class="frame cam" data-fr="marcocamara" data-ph="Captura de pantalla 2026-10-31 113114"></div><div class="frame cam" data-fr="foto_decoracion_camara-removebg-preview" data-ph="Captura de pantalla 2026-10-31 113124"></div></div>
+    <div class="gal"><figure class="pol"><img data-img="mejor amigaaa" alt=""><figcaption>Mi mejor amiga ✏️</figcaption></figure><figure class="pol"><img data-img="Captura de pantalla 2026-10-31 113129" alt=""><figcaption>Chiquitas</figcaption></figure><figure class="pol"><img data-img="Captura de pantalla 2026-10-31 113108" alt=""></figure><figure class="pol"><img data-img="Captura de pantalla 2026-10-31 113114" alt=""></figure><figure class="pol"><img data-img="gimansia" alt=""></figure></div>
+    
+  </div>
+</section>
+ 
+<section id="entorno" data-theme="blush" data-q="entorno">
+  <div class="panel">
+    <h2 class="ink">Mi erizo, Stitch</h2>
+    <p class="lead">Se llama <b>Stitch</b> y es lo más lindo que existe.</p>
+    <div class="gal"><figure class="pol"><img data-img="erizo" alt=""></figure><figure class="pol"><img data-img="erizo (2)" alt=""></figure><figure class="pol"><img data-img="erizoooo" alt=""></figure></div>
+  </div>
+</section>
+ 
+<section id="curioso" data-theme="lilac" data-q="curioso">
+  <div class="panel letterp">
+    <h2 class="ink">Datos curiosos</h2>
+    <p class="center">Tengo una carta para ti. Ábrela 💌</p>
+    <div class="env" id="env">
+      <div class="env-back"></div>
+      <div class="letter" id="letter"><div class="lt">Querido visitante,</div><ul id="lfacts"></ul><div class="lsign">Con cariño, Daniela ✿</div><img class="stk stamp s1" data-img="decoración galleta|decoración galletaaaaaaaaa" alt=""><img class="stk stamp s2" data-img="bitindecoracióon|bitindecoraciòon|bitindecoración" alt=""></div>
+      <div class="env-front"></div><div class="flap"></div><button class="seal fxb" id="seal" data-fx="💌,✦,♡,🌸">💌</button>
+    </div>
+    <p class="center"><button class="btn fxb" id="openEnv" data-fx="💌,✦">Abrir carta</button> <button class="btn fxb" id="nextFact" data-fx="🔎,✦,❓">Otros datos</button></p>
+    <img class="deco lupa2" data-img="aniamcion_lupa-removebg-preview (1)" alt="">
+    <div class="gal"><img class="stk winimg" data-img="frase iamgen pro" alt=""><img class="stk big" data-img="ce9a10c66913860ae18a5c99103a726a-removebg-preview" alt=""></div>
+  </div>
+</section>
+ 
+<section id="quotes" data-theme="tango" data-q="quotes">
+  <div class="panel bubbly">
+    <h2 class="ink">Quotes</h2>
+    <p class="lead">Mis frases favoritas de anime. Toca el botón y aparece una.</p>
+    <div class="qmachine"><blockquote id="qbig">“Surpass your limits! Right here, right now!”<cite>— Asta, Black Clover</cite></blockquote></div>
+    <p class="center"><button class="btn fxb" id="qnew">✦ Otra quote ✦</button></p>
+    <details class="card"><summary>Ver todas mis quotes</summary><div class="wall" id="wall"></div></details>
+  </div>
+</section>
+ 
+<section id="siglo-perdido" data-theme="vault" data-q="siglo">
+  <div class="panel vault">
+    <h2 class="ink gold">Siglo Perdido</h2>
+    <div id="locked"><div class="frame sec"><img class="fr" data-img="secreto" alt=""></div><p>Aquí hay un secreto solo mío. Para entrar tienes que demostrar que de verdad me conoces: responde el cuestionario. Es difícil.</p><button class="btn fxb" id="startQuiz">Empezar</button></div>
+    <div id="quiz" hidden></div>
+    <div id="secret" hidden>
+      <p class="lead">✦ Lo lograste ✦</p>
+      <p class="glow">Mi secreto: me encanta comer Play-Doh. Sí, de verdad. No me juzgues.</p>
+      <p class="center"><button class="btn sm fxb" id="relock" data-fx="🔒,✦">🔒 Volver a bloquear</button></p>
+      <div class="chatapp" id="chatapp">
+        <div class="chead"><img class="av" data-img="stickeraaa-removebg-preview" alt=""><div><b>Daniela (chatbot)</b><small id="cstat">en línea</small></div><button class="btn sm fxb" id="cclear" title="Limpiar">🧹</button></div>
+        <div class="topics" id="topics"></div>
+        <div class="msgs" id="msgs"></div>
+        <div class="sugg" id="sugg"></div>
+        <form id="chatform"><input id="chatin" placeholder="Escribe aquí… (prueba /ayuda)" autocomplete="off"><button class="btn sm fxb">Enviar ➜</button></form>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="fin" data-theme="vault" data-q="siglo">
+  <div class="panel vault typ">
+    <h2 class="ink gold">Fin</h2>
+    <div class="tw" id="tw"><img class="typewriter" data-img="maquinadeescribirparaelfinal" alt=""><div class="twtext" id="twtext"><span id="typedEnd"></span><i class="caret"></i></div></div>
+    <p class="center" id="seguro" hidden><b>…¿seguro que es el final?</b></p>
+    <p class="center"><button class="btn fxb" id="again2" data-fx="⌨,✦,📜">Volver a escribir</button> <button class="btn fxb" id="restart" data-fx="↺,✦,🍊" hidden>Volver al inicio ↺</button></p>
+    <div class="credits" id="credits" hidden><div class="roll"><p>MI MUNDO</p><p>Escrito y diseñado por<br>Daniela Arce</p><p>Música<br>VK Blanka · Cruel Angel's Thesis</p><p>Fandoms<br>Pokémon · Marvel · Star Wars · Harry Potter · Hamilton</p><p>Con cariño para<br>mi mejor amiga</p><p>Gracias por visitar<br>mi mundo ✦</p></div></div>
+  </div>
+</section>
+</main>
+</div>
+<aside id="ldock" class="vwin"><div class="vbar">mi_pc.exe</div>
+  <button class="fxb" data-open="map" data-fx="🗺,🧭,✦" title="Mapa"><b>🗺</b><span>Mapa</span></button>
+  <button class="fxb" data-win="w-games" data-fx="🎮,🕹,⭐" title="Minijuegos"><b>🎮</b><span>Juegos</span></button>
+  <button class="fxb" data-win="w-piano" data-fx="🎹,♪,♬" title="Piano"><b>🎹</b><span>Piano</span></button>
+  <button class="fxb" data-win="w-kit" data-fx="🎒,🍬,🔑" title="Mis indispensables"><b>🎒</b><span>Kit</span></button>
+  <button class="fxb" data-win="w-cookie" data-fx="🥠,✦,🍪" title="Galleta de la suerte"><b>🥠</b><span>Suerte</span></button>
+  <button class="fxb" data-win="w-book" data-fx="📖,✏️,💌" title="Libro de visitas"><b>📖</b><span>Libro</span></button>
+  <button class="fxb" data-go="#fin" data-fx="⌨,✦,📜" title="Final"><b>⌨</b><span>Fin</span></button>
+</aside>
+<aside id="dock">
+  <button class="fxb" data-win="w-fav" data-fx="🍊,🍣,✦" title="Favoritos">🍊</button>
+  <button class="fxb" data-win="w-play" data-fx="🎧,♪,♬" title="Playlist">🎧</button>
+  <button class="fxb" id="hamBtn" data-win="w-ham" data-fx="★,🎭,✦" title="Hamilton">★</button>
+  <button class="fxb" id="dockChat" data-win="w-chat" title="Chat" hidden>💬</button>
+</aside>
+<div class="win" id="w-fav" hidden><div class="bar"><span>favoritos.exe</span><button class="x">✕</button></div><div class="wbody">
+  <p><b>Color:</b> naranja y blanco</p><p><b>Comida:</b> japonesa</p><p><b>Starbucks:</b> Chocolate Cream Frappuccino</p><p><b>Pokémon:</b> Espeon y Hoopa</p><p><b>Marvel:</b> Hawkeye y Tony</p><p><b>Star Wars:</b> R2-D2</p><p><b>Casa:</b> Ravenclaw · patronus lobo</p><p><b>K-pop:</b> NewJeans</p><p><b>Frutas:</b> ninguna. Las odio. 🍎✕</p></div></div>
+<div class="win" id="w-play" hidden><div class="bar"><span>playlist.mp3</span><button class="x">✕</button></div><div class="wbody">
+  <img class="playerimg" data-img="musciaffondo-removebg-preview|musciaffondo|musiaffondo-removebg-preview|musiaffondo|musicaffondo-removebg-preview" alt=""><p id="nowp" class="center">Sin música todavía</p>
+  <input type="range" id="pbar" min="0" max="100" value="0"><div class="ptime"><span id="pcur">0:00</span><span id="ptot">0:00</span></div>
+  <p class="center"><button class="btn sm fxb" id="pPrev">⏮</button> <button class="btn sm fxb" id="pPlay">⏯</button> <button class="btn sm fxb" id="pNext">⏭</button></p>
+  <label class="vol">🔊 <input type="range" id="pvol" min="0" max="100" value="30"></label><div id="plist" class="plist"></div></div></div>
+<div class="win" id="w-ham" hidden><div class="bar"><span>hamilton.mp4</span><button class="x">✕</button></div><div class="wbody">
+  <p class="lead">★ My Shot ★</p><p>Mi personaje favorito es Eliza, pero según un test me parezco a Hamilton.</p><div class="gal sm"><figure class="pol"><img data-img="hamilto my shot" alt=""></figure><figure class="pol"><img data-img="eliza" alt=""></figure></div></div></div>
+<div class="win" id="w-chat" hidden><div class="bar"><span>chat.exe</span><button class="x">✕</button></div><div class="wbody"><p>El chat está en <a href="#siglo-perdido">Siglo Perdido</a>, después de desbloquearlo.</p></div></div>
+ 
+<div class="win wide" id="w-games" hidden><div class="bar"><span>minijuegos.exe</span><button class="x">✕</button></div><div class="wbody">
+  <div class="tabs"><button class="btn sm fxb" data-game="mem">Memoria</button><button class="btn sm fxb" data-game="bub">Burbujas</button><button class="btn sm fxb" data-game="sim">Simón</button><button class="btn sm fxb" data-game="ttt">3 en raya</button><button class="btn sm fxb" data-game="typ">Escribe rápido</button></div>
+  <div id="gbox"></div></div></div>
+<div class="win" id="w-piano" hidden><div class="bar"><span>piano.exe</span><button class="x">✕</button></div><div class="wbody"><p>Toca las teclas o usa A S D F G H J K</p><div class="piano" id="piano"></div></div></div>
+<div class="win wide" id="w-kit" hidden><div class="bar"><span>mis_indispensables.exe</span><button class="x">✕</button></div><div class="wbody">
+  <p class="center">Lo que llevo para salir. Pasa el mouse por encima de cada cosa.</p>
+  <div class="tinbox" id="tinbox"><div class="tray t1"></div><div class="tray t2"></div><div class="beadrow" id="kbeads"></div>
+    <figure class="it" style="--x:6%;--y:16%;--w:24%;--r:-4deg" data-tip="Mis Chin Chin: no salgo sin dulces"><img data-img="dulce_indispensable-removebg-preview" alt=""></figure>
+    <figure class="it" style="--x:33%;--y:14%;--w:29%;--r:3deg" data-tip="Nivea: mi protector de labios"><img data-img="nivea-removebg-preview" alt=""></figure>
+    <figure class="it" style="--x:65%;--y:10%;--w:8%;--r:-3deg" data-tip="Mi gloss"><img data-img="gloss indispensabless|gloss indispensablesss|gloss indispensablessss|gloss indispensablesssss|gloss indispensablessssss" alt=""></figure>
+    <figure class="it" style="--x:77%;--y:13%;--w:17%;--r:7deg" data-tip="Llavero antiestrés"><img data-img="llaverodesdestresande-removebg-preview|llaverodesdestresante-removebg-preview" alt=""></figure>
+    <figure class="it" style="--x:6%;--y:58%;--w:20%;--r:-3deg" data-tip="Mis AirPods"><img data-img="9893e496241167281d2449a98287b5d3-removebg-preview" alt=""></figure>
+    <figure class="it" style="--x:28%;--y:55%;--w:13%;--r:5deg" data-tip="Mi celular rosa"><img data-img="descarga-removebg-preview (2)" alt=""></figure>
+    <figure class="it" style="--x:43%;--y:57%;--w:12%;--r:-6deg" data-tip="Celular vintage"><img data-img="2d76e622bbca663c612ad47554d6305f" alt=""></figure>
+    <figure class="it" style="--x:57%;--y:56%;--w:8%;--r:4deg" data-tip="Mi perfume"><img data-img="perfume indispensablee|perfume indispensableee|perfume indispensableeee|perfume indispensableeeee|perfume indispensableeeeee|perfume indispensableeeeeee|perfume indispensableeeeeeee|perfume indispensableeeeeeeee|perfume indispensableeeeeeeeee|perfume indispensableeeeeeeeeee" alt=""></figure>
+    <figure class="it" style="--x:67%;--y:56%;--w:9%;--r:-4deg" data-tip="Otro indispensable"><img data-img="indsipensables|indsipensabless|indsipensablesss|indsipensablessss|indsipensablesssss|indsipensablessssss|indsipensablesssssss|indispensabless|indispensablesss|indispensablessss|indispensablesssss|indispensablessssss|indispensablesssssss" alt=""></figure>
+    <figure class="it" style="--x:79%;--y:57%;--w:10%;--r:5deg" data-tip="Crema para manos secas"><img data-img="cremaaa manos secas indispenbale|crema manos secas indispensable" alt=""></figure>
+    <figure class="it" style="--x:8%;--y:79%;--w:12%;--r:4deg" data-tip="Mi cosita amarilla"><img data-img="indispensables" alt=""></figure>
+    <figure class="it" style="--x:24%;--y:79%;--w:12%;--r:-4deg" data-tip="Mi llavero"><img data-img="llavero-removebg-preview" alt=""></figure>
+    <figure class="it" style="--x:40%;--y:77%;--w:14%;--r:3deg" data-tip="Una cartita"><img data-img="cartasdecoración" alt=""></figure>
+    <img class="tinlid" data-img="mi kit|misindispensables" alt="">
+  </div></div></div>
+<div class="win" id="w-cookie" hidden><div class="bar"><span>galleta_suerte.exe</span><button class="x">✕</button></div><div class="wbody center"><p>Rompe una galleta y descubre tu suerte</p>
+  <button class="cookie fxb" id="cookieBtn" data-fx="🥠,✨,🍪"><img data-img="decoración galleta|decoración galletaaaaaaaaa" alt=""></button><p id="fortune" class="fortune">Toca la galleta ✨</p></div></div>
+<div class="win" id="w-book" hidden><div class="bar"><span>libro_de_visitas.exe</span><button class="x">✕</button></div><div class="wbody">
+  <form id="bookform"><input id="bname" placeholder="Tu nombre" maxlength="20"><textarea id="bmsg" placeholder="Déjame un mensaje…" maxlength="120"></textarea><button class="btn sm fxb">Firmar 💌</button></form><div id="bentries"></div></div></div>
+<div id="map" hidden><img class="mapbg" data-img="decoración|1cde7b6e192fcdf46e2e34e0efa01ceb" alt=""><button class="mapx" id="mapx">✕</button><h2 class="ink">Mi mundo</h2><div class="bubbles" id="bubbles"></div></div>
+<div id="lightbox" hidden><img alt=""></div>
+<aside id="toast" role="status"></aside>
+<button id="qbtn" class="btn">✦ Quote</button>
+<div id="wipe"></div>
+<audio id="bgm" preload="auto"></audio>
+<script src="main.js"></script>
+</body>
+</html>
+ 
